@@ -1,0 +1,86 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Nuevo Viaje</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ionKeyboard" [fullscreen]="true">
+
+  <div *ngIf="mostrarMensaje">
+    <div class="error-overlay">
+      <div *ngIf="errorMessage" class="error-message">
+        {{ errorMessage }}
+      </div>
+    </div>
+    <div class="succes-overlay">
+      <div *ngIf="succesMessage" class="succes-message">
+        {{ succesMessage }}
+      </div>
+    </div>
+  </div>
+  
+
+  <div class="container">
+  <form (ngSubmit)="enviar()">
+
+    <ion-item>
+      <ion-label>Fecha:</ion-label>
+      <ion-input type="date" name="date" [(ngModel)]="solicitudViaje.date" [ngModelOptions]="{ standalone: true }" 
+        (change)="guardarFechaSeleccionada($event)">
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Hora:  </ion-label>
+      <ion-input type="time" name="time" [(ngModel)]="solicitudViaje.time" [ngModelOptions]="{standalone: true}"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Pasajeros:  </ion-label>
+      <ion-button slot="end" fill="clear" (click)="decrementarPasajeros()">
+        <ion-icon name="remove"></ion-icon>
+      </ion-button>
+      <ion-input type="text" [value]="solicitudViaje.pasajeros" readonly></ion-input>
+      <ion-button slot="end" fill="clear" (click)="incrementarPasajeros()">
+        <ion-icon name="add"></ion-icon>
+      </ion-button>
+    </ion-item>
+    
+    <ion-item><input
+      id="pac-input"
+      class="controls pac-input"
+      type="text"
+      placeholder="Direccion"
+      [(ngModel)]="solicitudViaje.destination"
+      [ngModelOptions]="{standalone: true}"
+      required
+    />
+    </ion-item>
+
+    <ion-item><input
+      id="pac-input2"
+      class="controls pac-input"
+      type="text"
+      placeholder="Punto de Salida"
+      [(ngModel)]="solicitudViaje.exit_point"
+      [ngModelOptions]="{standalone: true}"
+      required
+    />
+    </ion-item>
+    
+    <ion-item lines="none">
+      <ion-button type="submit" [disabled]="mostrarMensaje">Crear Viaje</ion-button>
+      <!-- <ion-button (click)="enviargoogle()">Create Viaje</ion-button> -->
+    </ion-item>
+    
+  </form>
+
+</div>
+<div class="container2">
+  <div id="map"></div>
+</div>
+</ion-content>
+
+
+
+

@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Transit</string>
+    <string name="title_activity_main">Transit</string>
+    <string name="package_name">com.transit.app</string>
+    <string name="custom_url_scheme">com.transit.app</string>
+</resources>

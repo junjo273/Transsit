@@ -1,0 +1,19 @@
+<ion-content [fullscreen]="true">
+  <!-- Imagen en la parte superior -->
+  <div style="text-align: center; padding: 20px;">
+    <img src="../../../assets/Transit-Logo.png" style="max-width: 100%; height: auto;" alt="Imagen de inicio" />
+  </div>
+
+  <!-- Botones en la parte inferior -->
+  <div style="display: flex; flex-direction: column; align-items: center; padding: 20px;">
+    <!-- Botón 1 -->
+    <ion-button shape="round" color="primary" style="width: 70%; margin-bottom: 30%;" (click)="redirigirPagina1()">EMPIEZA A VIAJAR</ion-button>
+
+    <!-- Botón 2 -->
+    <ion-button shape="round" color="secondary" style="width: 70%; margin-bottom: 5%;" (click)="redirigirPagina2()">MIS VIAJES</ion-button>
+
+    <!-- Botón 3 -->
+    <ion-button shape="round" color="tertiary" style="width: 70%;" (click)="redirigirPagina3()">AJUSTES</ion-button>
+  </div>
+</ion-content>
+

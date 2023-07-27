@@ -1,0 +1,87 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="back()"><ion-icon name="chevron-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Informacion de viaje</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="cargaPagina" >
+
+  <div *ngIf="mostrarMensaje">
+    <div class="error-overlay">
+      <div *ngIf="errorMessage" class="error-message">
+        {{ errorMessage }}
+      </div>
+    </div>
+    <div class="succes-overlay">
+      <div *ngIf="succesMessage" class="succes-message">
+        {{ succesMessage }}
+      </div>
+    </div>
+  </div>
+
+
+  <div class="ion-content-centered" style="background-color: #EBF2FA;">
+    <ion-card style="width: 100%;">
+      <ion-card-header>
+        <ion-card-subtitle style="color: #05668D; font-size: 24px">Destino</ion-card-subtitle>
+        <ion-card-title *ngIf="viaje.destino">{{ viaje?.destino }}</ion-card-title>
+      </ion-card-header>
+  
+      <ion-card-content>
+        <ion-item>
+          <ion-label>Estado:</ion-label>
+          <ion-label *ngIf="viaje.estado">{{ viaje?.estado }}</ion-label>
+        </ion-item>
+  
+        <ion-item>
+          <ion-label>Fecha:</ion-label>
+          <ion-label *ngIf="viaje.fechaComienzo">{{ viaje?.fechaComienzo | date:'dd/MM/yyyy HH:mm' }}</ion-label>
+        </ion-item>
+  
+        <ion-item>
+          <ion-label>Pasajeros:</ion-label>
+          <ion-label *ngIf="viaje.huecos">{{ pasajeros }}</ion-label>
+        </ion-item>
+  
+        <ion-item lines="none">
+          <ion-label class="usuarios-label" style="color: #05668D; font-size: 24px;">USUARIOS</ion-label>
+        </ion-item>
+        
+        <ion-list *ngIf="usuarios">
+          <ng-container *ngFor="let usuario of usuarios">
+            <ion-item (click)="toggleDetails(usuario)" lines="none">
+              <ion-col class="usuario-item">
+                <ion-label>{{ usuario?.nombre }}</ion-label>
+              </ion-col>
+              <ion-col class="icono-col" size="1">
+                <ion-icon [name]="usuario.showDetails ? 'chevron-up' : 'chevron-down'"></ion-icon>
+              </ion-col>
+            </ion-item>
+      
+            <!-- <ion-item *ngIf="usuario.showDetails" lines="none">
+              <ion-label>{{ usuario?.email }}</ion-label>
+            </ion-item> -->
+            <ion-item *ngIf="usuario.showDetails" lines="none">
+              <ion-label stacked>Valoración (1-5):</ion-label>
+              <ion-button (click)="decreaseValue(usuario)" color="secondary" style="margin-left: 5px; color: #05668D;">-</ion-button>
+              <ion-input type="number" readonly [value]="usuario.valoracion.valor" style="text-align: center;"></ion-input>
+              <ion-button (click)="increaseValue(usuario)" color="secondary">+</ion-button>
+            </ion-item>
+            <ion-item *ngIf="usuario.showDetails" lines="none">
+              <ion-label stacked>Descripción:</ion-label>
+              <ion-input placeholder="Escribe una descripción" [(ngModel)]="usuario.valoracion.descripcion"></ion-input>
+            </ion-item> 
+            <ion-button (click)="enviarValoracion(usuario)" *ngIf="usuario.showDetails">Enviar Valoración</ion-button>
+          </ng-container>
+        </ion-list>
+        
+        
+      </ion-card-content>
+    </ion-card>
+  </div>
+  
+</ion-content>

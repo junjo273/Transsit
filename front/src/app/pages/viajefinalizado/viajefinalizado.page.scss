@@ -1,0 +1,97 @@
+ion-card {
+    margin: 20px;
+  }
+  
+  ion-card-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  ion-card-subtitle {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  ion-card-title {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  ion-item {
+    --padding-start: 0;
+  }
+  
+  ion-label {
+    font-weight: bold;
+    margin-right: 5px;
+  }
+  
+  ion-list {
+    margin-top: 10px;
+  }
+
+.usuarios-label {
+  display: flex;
+  justify-content: center;
+}
+
+.usuarios-grid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.usuario-item {
+  margin: 8px 0; /* Agregar espacio entre cada usuario */
+  padding: 4px;
+  border: 1px solid #ccc; /* Opcional: Agregar un borde para resaltar cada usuario */
+}
+
+.ion-content-centered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%; /* Asegúrate de que el ion-content ocupe todo el alto disponible */
+  width: 100%;
+}
+  
+
+
+.error-overlay {
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  width: 80%;
+  text-align: center;
+}
+
+
+.error-message {
+  background-color: rgba(255, 0, 0, 0.8);
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.succes-overlay {
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  width: 80%;
+  text-align: center;
+}
+
+
+.succes-message {
+  background-color: rgba(4, 173, 7, 0.8);
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+}

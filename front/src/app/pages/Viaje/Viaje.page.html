@@ -1,0 +1,82 @@
+
+
+<ion-content [fullscreen]="true">
+  
+  <div class="overlay">
+      <div class="column-1">
+        <ion-buttons slot="start" style="margin-top: 15px;">
+          <ion-button (click)="back()"><ion-icon name="chevron-back-outline" size="large"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+      </div>
+      <div class="column-2">
+        <div class="content-top">
+          <h1 style="color: white;">{{ titulo }}</h1>
+          <p style="color: greenyellow;" *ngIf="info"> <strong>VIAJE CONFIRMADO</strong></p>
+        </div>
+        <div class="content-bottom">
+          <p>{{fecha | date:'dd/MM/yyyy' }}</p>
+          <ion-icon (click)="cambiarVentana('map')" name="map-outline" class="icon" size="large" *ngIf="chat"></ion-icon>
+          <ion-icon (click)="cambiarVentana('chat')" name="chatbubbles-outline" class="icon" size="large" *ngIf="map"></ion-icon>
+          <ion-icon (click)="cambiarVentana('info')" name="information-circle-outline" class="icon2" size="large" *ngIf="info"></ion-icon>
+        </div>
+      </div>
+      <div class="column-3">
+        <ion-icon (click)="salirGrupo()" style="color: red; " name="exit-outline" size="large"></ion-icon>
+        <ion-icon (click)="confirmarviaje()" style="color: white; margin-right: 15px; margin-top: 20%;" name="checkmark-circle-outline" size="large" *ngIf="!check"></ion-icon>
+        <ion-icon (click)="confirmarviaje()" style="color: greenyellow; margin-right: 15px; " name="checkmark-circle" size="large" *ngIf="check"></ion-icon>
+
+      </div>
+  </div>
+
+  <div *ngIf="mostrarMensaje">
+    <div class="error-overlay">
+      <div *ngIf="errorMessage" class="error-message">
+        {{ errorMessage }}
+      </div>
+    </div>
+    <div class="succes-overlay">
+      <div *ngIf="succesMessage" class="succes-message">
+        {{ succesMessage }}
+      </div>
+    </div>
+  </div>
+
+  <div style="height: 100%;" class="chat" id="talkjs-container"></div>
+  <div style="height: 100%; background-color: white;" class="map d-none">
+    <div style="height: 0%;"></div>
+    <div id="map2" style="height: 100%; width: 120%;"></div>
+  </div>
+
+  <div style="height: 100%;" class="info d-none">
+    <div style="height: 25%;"></div>
+    <div>
+    
+      <div class="rounded-box">
+        <h1 style="text-align: center; color: white;">USUARIOS</h1>
+      </div>
+
+      <ion-list>
+        <ion-list *ngFor="let usuario of datos_usuarios" class="lista">
+          <ion-item class="user-item" [class.expanded]="usuario.expanded" lines="none">
+            <ion-label><strong>Nombre: </strong>{{ usuario.datos.nombre }}</ion-label>
+            <ion-icon name="{{ usuario.expanded ? 'chevron-up' : 'chevron-down' }}" slot="end" (click)="toggleUserDetails(usuario)"></ion-icon>
+          </ion-item>
+          <ion-item *ngIf="usuario.expanded" class="user-details" lines="none">
+            <p><strong>Telefono:</strong> {{ usuario.datos.telefono }}</p>
+          </ion-item>
+          <ion-item *ngIf="usuario.expanded" class="user-details" lines="none">
+            <p><strong>Correo:</strong> {{ usuario.datos.email }}</p>
+          </ion-item>
+        </ion-list>
+      </ion-list>
+    
+    
+    </div>
+    
+
+
+  </div>
+
+  
+</ion-content>

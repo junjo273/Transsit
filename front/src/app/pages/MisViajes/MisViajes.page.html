@@ -1,0 +1,105 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Mis Viajes</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="!paginacargada">
+  <div class="containerloader">
+    <span class="loader"></span>
+  </div>
+</ion-content>
+
+
+<ion-content *ngIf="paginacargada">
+  <div *ngIf="mostrarMensaje">
+    <div class="error-overlay">
+      <div *ngIf="errorMessage" class="error-message">
+        {{ errorMessage }}
+      </div>
+    </div>
+    <div class="succes-overlay">
+      <div *ngIf="succesMessage" class="succes-message">
+        {{ succesMessage }}
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- SELECTOR DE SEGMENTO -->
+  <ion-segment [(ngModel)]="selectedSegment">
+    <ion-segment-button value="actuales">
+      <ion-label>Viajes<br>Actuales</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="pendientes">
+      <ion-label>Solicitudes<br>Pendientes</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="realizados">
+      <ion-label>Viajes<br>Realizados</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+
+  
+
+  <!-- LISTAS PARA CADA VIAJE -->
+  <ion-list *ngIf="selectedSegment === 'actuales'">
+    <h1>Proximos Viajes</h1>
+    <div *ngIf="mostrarMensajeViajesActuales" class="mensaje-centrado">
+      Parece que no tienes viajes aun.
+    </div>
+    <ion-item *ngFor="let viaje of viajesActuales">
+        <ion-label>
+          <h2>{{ viaje.destino }}</h2>
+          <p>{{ viaje.fechaComienzo | date: 'dd/MM/yyyy HH:mm' : 'Europe/Madrid' }}</p>
+        </ion-label>
+
+      <ion-buttons slot="end">
+        <ion-button (click)="navegar(viaje.uid)">
+          <ion-icon slot="icon-only" name="arrow-forward" size="large"></ion-icon>
+        </ion-button>               
+      </ion-buttons>
+    </ion-item>
+  </ion-list>
+
+  <ion-list *ngIf="selectedSegment === 'pendientes'">
+    <h1>Solicitudes Pendientes</h1>
+    <div *ngIf="mostrarMensajeSolicitudesPendientes" class="mensaje-centrado">
+      Parece que no tienes solicitudes pendientes.
+    </div>
+    <ion-item *ngFor="let solicitud of solicitudesPendientes">
+      <ion-label>
+        <h2>{{ solicitud.destino }}</h2>
+        <p>{{ solicitud.origen }}</p>
+        <p>{{ solicitud.fecha | date: 'dd/MM/yyyy HH:mm' : 'Europe/Madrid' }}</p>
+      </ion-label>
+      <ion-buttons slot="end">
+        <ion-button (click)="cancelar(solicitud.uid)">
+          <ion-icon slot="icon-only" name="close-outline" size="large"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-item>
+  </ion-list>
+
+  <ion-list *ngIf="selectedSegment === 'realizados'">
+    <h1>Viajes Realizados</h1> 
+    <div *ngIf="mostrarMensajeViajesRealizados" class="mensaje-centrado">
+      Parece que no has realizado ningún viaje.
+    </div>
+    <ion-item *ngFor="let finalizado of viajesRealizados">
+      <ion-label>
+        <h2>{{ finalizado.destino }}</h2>
+        <p> {{ finalizado.fechaComienzo | date: 'dd/MM/yyyy HH:mm' : 'Europe/Madrid' }}</p>
+      </ion-label>
+      <ion-buttons slot="end">
+        <ion-button (click)="viajefianlizado(finalizado.uid)">
+          <ion-icon slot="icon-only" name="folder-open-outline" size="large"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-item>
+  </ion-list>
+
+
+</ion-content>
+

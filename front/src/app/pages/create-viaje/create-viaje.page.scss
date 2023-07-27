@@ -1,0 +1,148 @@
+
+.container {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 10px;
+    text-align: center;
+    position: absolute;
+  }
+
+  .container2 {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    padding: 0px;
+    text-align: center;
+  }
+  /* 
+ * Always set the map height explicitly to define the size of the div element
+ * that contains the map. 
+ */
+#map {
+  height: 100%;
+  width: 100%;
+}
+
+
+.error-overlay {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  width: 80%;
+  text-align: center;
+}
+
+
+.error-message {
+  background-color: rgba(255, 0, 0, 0.8);
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.succes-overlay {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  width: 80%;
+  text-align: center;
+}
+
+
+.succes-message {
+  background-color: rgba(4, 173, 7, 0.8);
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+/* 
+ * Optional: Makes the sample page fill the window. 
+ */
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#description {
+  font-family: Roboto;
+  font-size: 15px;
+  font-weight: 300;
+}
+
+#infowindow-content .title {
+  font-weight: bold;
+}
+
+#infowindow-content {
+  display: none;
+}
+
+#map #infowindow-content {
+  display: inline;
+}
+
+.pac-card {
+  background-color: #fff;
+  border: 0;
+  border-radius: 2px;
+  box-shadow: 0 1px 4px -1px rgba(0, 0, 0, 0.3);
+  margin: 10px;
+  padding: 0 0.5em;
+  font: 400 18px Roboto, Arial, sans-serif;
+  overflow: hidden;
+  font-family: Roboto;
+  padding: 0;
+}
+
+#pac-container {
+  padding-bottom: 12px;
+  margin-right: 12px;
+}
+
+.pac-controls {
+  display: inline-block;
+  padding: 5px 11px;
+}
+
+.pac-controls label {
+  font-family: Roboto;
+  font-size: 13px;
+  font-weight: 300;
+}
+
+.pac-input {
+  background-color: var(--ion-item-background) ;
+  width: 100%;
+  color: var(--ion-text-color);
+  border: none;
+}
+
+.pac-input:focus {
+  border-color: #4d90fe;
+}
+
+
+::placeholder {
+  color: var(--ion-text-color);
+  opacity: 1; 
+}
+
+
+
+
+#target {
+  width: 345px;
+}
+
+
+.ionKeyboard{
+  --keyboard-offset: 0px !important;
+}

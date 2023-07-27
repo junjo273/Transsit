@@ -1,0 +1,170 @@
+.error-overlay {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    width: 80%;
+    text-align: center;
+  }
+  
+  
+  .error-message {
+    background-color: rgba(255, 0, 0, 0.8);
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  .succes-overlay {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    width: 80%;
+    text-align: center;
+  }
+  
+  
+  .succes-message {
+    background-color: rgba(4, 173, 7, 0.8);
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+  }
+
+  ion-list h1 {
+    font-weight: bold; 
+    text-align: center; 
+    margin-bottom: 30px; 
+    margin-top: 30px;
+  }
+
+  .mensaje-centrado {
+    text-align: center;
+    margin-top: 65%;
+    font-weight: bold;
+    color: #555; 
+  }
+
+
+  // ion-segment {
+  //   margin-top: 5px;
+  //   --background: #bbdbff;; 
+  // }
+  
+
+  ion-segment-button {
+    --background: #EBF2FA; 
+    border: #427AA1;
+  }
+  
+
+
+/* Estilo para los ion-item, botones y texto */
+ion-item {
+  --background: #427AA1;
+  --color: white; 
+  --padding-start: 20px; 
+  --padding-end: 20px; 
+  --border-radius: 25px; 
+    margin: 10px; 
+}
+
+/* Estilo para los encabezados (h1 y h2) dentro de los ion-item */
+ion-item h1,
+ion-item h2 {
+  color: white; /* Color del texto en blanco */
+}
+ion-item p {
+  color: white; /* Color del texto en blanco */
+}
+
+ion-icon {
+  // font-size: 20px; 
+  // position: relative;
+  // background-color: white; 
+  // border-radius: 50%; 
+  // padding: 8px; 
+  color: white;
+}
+
+// ion-icon::before {
+//   top: 50%;
+//   left: 50%;
+//   transform: translate(-50%, -50%);
+// }
+
+/* Opcional: Aumentar el tamaño del texto dentro de los ion-item */
+ion-item ion-label,
+ion-item ion-title {
+  font-size: 16px; /* Ajusta el tamaño de fuente según sea necesario */
+}
+
+
+
+
+
+.containerloader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Ajusta la altura del contenedor para que ocupe todo el viewport vertical */
+}
+
+/* Estilo para el loader */
+.loader {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  display: inline-block;
+  position: fixed;
+  top: 50%;
+  left: 38%;
+  transform: translate(-50%, -50%);
+  border: 3px solid;
+  border-color: #427AA1 #427AA1 transparent;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+
+.loader::after {
+  content: '';  
+  box-sizing: border-box;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  border: 3px solid;
+  border-color: transparent #679436 #679436;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  animation: rotationBack 0.5s linear infinite;
+  transform-origin: center center;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+} 
+    
+@keyframes rotationBack {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+   
+
+
+

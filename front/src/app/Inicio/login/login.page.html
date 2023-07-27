@@ -1,0 +1,56 @@
+<ion-content class="scroll">
+  <div class="container">
+    <div class="error-overlay"> 
+      <div *ngIf="errorMessage" class="error-message">
+        {{ errorMessage }}
+      </div>
+    </div>
+
+    <div style="text-align: center; padding: 20px;">
+      <img src="../../../assets/Transit-Logo.png" style="max-width: 80%; height: auto;" alt="Imagen de inicio" />
+    </div>
+    
+    <form (ngSubmit)="login()">
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-item>
+              <ion-label position="floating">Correo electrónico</ion-label>
+              <ion-input type="email" [(ngModel)]="email" name="email" required></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+    
+        <ion-row>
+          <ion-col>
+            <ion-item>
+              <ion-label position="floating">Contraseña</ion-label>
+              <ion-input type="password" [(ngModel)]="password" name="password"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+    
+        <ion-row>
+          <ion-col>
+            <ion-button type="ngSubmit" expand="full" [disabled]="waiting"><span class="loader" *ngIf="waiting"></span>Iniciar sesión</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </form>
+
+    <!-- <div class="forgot-password-section">
+      <p>
+        ¿Has olvidado la contraseña? 
+        <a (click)="redirectToForgotPassword()">Haz clic aquí</a>
+      </p>
+    </div> -->
+
+    <div class="registration-section">
+      <p>¿Aún no estás registrado?</p>
+        <div class="registration-button">
+          <ion-button expand="full" (click)="redirectToRegistration()" [disabled]="waiting">Regístrate</ion-button>
+        </div>
+    </div>
+
+  </div>
+</ion-content>

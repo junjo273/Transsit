@@ -1,0 +1,59 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Ajustes
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div *ngIf="mostrarMensaje">
+    <div class="error-overlay">
+      <div *ngIf="errorMessage" class="error-message">
+        {{ errorMessage }}
+      </div>
+    </div>
+    <div class="succes-overlay">
+      <div *ngIf="succesMessage" class="succes-message">
+        {{ succesMessage }}
+      </div>
+    </div>
+  </div>
+  <div class="content-container">
+
+    <div style="text-align: center; padding: 20px;">
+      <img src="../../../assets/Transit-Logo.png" style="max-width: 80%; height: auto; margin-bottom: 20%;" alt="Imagen de inicio" />
+    </div>
+
+    <!-- DESABILITADO HASTA QUE SE INCORPORE CLOUD STORAGE  -->
+    <!-- <ion-card-content style="width: 100%; padding-bottom: 100px;" >
+      <form (ngSubmit)="onSubmit()" #form="ngForm" style="width: 100%" >
+        <ion-item style="width: 100%;" lines="none">
+          <div style="align-items: center; display: flex; justify-content: center; width: 100%;"> 
+            <label for="fileInput">
+              <div class="image-preview-container">
+                <ion-img [src]="imageUrl" class="image-preview"></ion-img>
+              </div>
+              <p style="text-align: center; margin-top: 7%; margin-bottom: 10%;">Cambiar imagen</p>
+            </label>
+          </div>
+          
+          <input type="file" id="fileInput" (change)="onFileSelected($event)" accept="image/*" />
+        </ion-item>
+        <ion-button type="submit" expand="full" [disabled]="mostrarMensaje">Guardar</ion-button>
+      </form>
+    </ion-card-content> -->
+    
+    <div class="button-container">
+      <ion-button expand="full" (click)="cambiarDatos()">Cambiar datos</ion-button>
+      <ion-button expand="full" (click)="cambiarContrasena()">Cambiar contraseña</ion-button>
+      <ion-button expand="full" (click)="cerrarSesion()">Cerrar sesión</ion-button>
+    </div>
+    
+  </div>
+
+  
+  
+
+
+</ion-content>
