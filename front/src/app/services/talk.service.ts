@@ -37,7 +37,7 @@ export class TalkService {
 
     });
     const session = new Talk.Session({
-        appId: "tOfCBxbB",
+        appId: "APIID",
         me: me
     });
 
@@ -65,7 +65,7 @@ export class TalkService {
 
     });
     const session = new Talk.Session({
-        appId: "tOfCBxbB",
+        appId: "APIID",
         me: me,
     });
     const leave =session.getOrCreateConversation(idchat).leave();
